@@ -1,7 +1,7 @@
 var trivia = {
     question: {
         ask: [],
-        option1: [], //will always be the correct answer
+        option1: [],
         option2: [],
         option3: [],
         option4: [],
