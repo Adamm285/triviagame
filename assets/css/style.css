@@ -1,0 +1,19 @@
+body {
+    color: rgb(187, 24, 78);
+    background: url("https://cdn.aarp.net/content/dam/aarp/travel/destination-guides/2018/03/1140-trv-dst-dc-main.imgcache.revd66f01d4a19adcecdb09fdacd4471fa8.web.650.370.jpg") ;
+    background-repeat: no-repeat;
+    background-size: 110%;
+    font-size: 24px;
+    font-family: 'Bowlby One SC', cursive;
+}
+.footer {
+    margin-top: 15%;
+    height: 200px;
+    width: 110%;
+    background-color: black;
+    position: sticky;
+    text-align: center;
+}
+.container {
+    background: url("https://images.homedepot-static.com/productImages/eb1ae7fd-23a8-42f4-8d4c-1872e54fcae1/svn/anley-house-flags-a-flag-us-retro-64_1000.jpg") ;
+}
