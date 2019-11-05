@@ -1,3 +1,4 @@
+
 var trivia = {
     question: {
         ask: [],
@@ -20,7 +21,6 @@ var trivia = {
         trivia.question.option2.push(option2);
         trivia.question.option4.push(option4);
         trivia.question.result.push(result);
-        
     },
     start() {
         trivia.replay();
@@ -78,7 +78,6 @@ var trivia = {
         $(".option").attr("onclick", "trivia.qResult()");
         trivia.currentQ++;
     },
-
     qResult() {
         clearInterval(trivia.questionTimer);
         $("#seconds-left").html("");
@@ -89,23 +88,19 @@ var trivia = {
         $("#a4").html("");
         $(".option").prop("onclick", null);
         $("#continue").css("display", "initial");
-
         if (trivia.timer == 0) {
             $("#result").html("You ran out of time!");
             trivia.oot++;
             console.log("oot", trivia.oot);
-
         } else if (event.target.getAttribute("data-option") == trivia.question.option1[trivia.currentQ - 1]) {
             $("#result").html("You guessed right!");
             trivia.win++;
             console.log("wins", trivia.win);
-
         } else {
             $("#result").html("You guessed wrong!");
             trivia.loss++;
             console.log("loss", trivia.loss);
         }
-
         $("#answer").html("The correct answer was: " + trivia.question.option1[trivia.currentQ - 1]);
         $("#pic").html("<img src=./assets/images/" + trivia.question.result[trivia.currentQ - 1] + "></img>");
         if (trivia.currentQ != trivia.question.ask.length) {
@@ -113,7 +108,6 @@ var trivia = {
         } else {
             $("#continue").attr("onclick", "trivia.finalResult()");
         }
-
     },
     finalResult() {
         $("#answer").html("");
@@ -136,7 +130,6 @@ var trivia = {
         trivia.currentQ = 0;
     }
 }
-
 trivia.qLoader("WHAT WAS OUR COUNTRY'S FIRST CONSTITUTION CALLED?", "THE ARTICLES OF CONFEDERATION", "THE FEDERALIST PAPER", "THE EMANCIPATION PROCLAMATION", "THE DECLARATION OF INDEPENDENCE", "const.jpeg", 0);
 trivia.qLoader("LAWS FOR THE UNITED STATES ARE MADE BY:", "CONGRESS", "THE SENATE", "THE PRESIDENT", "THE SUPREME COURT", "congress.png", 1);
 trivia.qLoader("THE LONGEST POSSIBLE TIME A PERSON CAN NOW SERVE AS PRESIDENT IS:", "10 YEARS", "4 YEARS", "8 YEARS", "12 YEARS", "10years.jpeg", 2);
@@ -147,6 +140,4 @@ trivia.qLoader("THE BILL OF RIGHTS IS:", "FIRST TEN AMENDMENTS", "THE FIFTEENTH 
 trivia.qLoader("IF NEITHER THE PRESIDENT NOR THE VICE-PRESIDENT CAN SERVE, THE POSITION WOULD BE FILLED BY:", "THE SPEAKER OF THE HOUSE", "THE CHIEF JUSTICE", "THE ELECTED PRESIDENT OF THE SENATE", "THE SECRETARY OF THE STATE", "thehouse.png", 7);
 trivia.qLoader("THE MAJOR DEPARTMENT HEAD WHO IS APPOINTED BY THE PRESIDENT TO DEAL WITH FOREIGN COUNTRIES IS THE:", "SECRETARY OF STATE", "SECRETARY OF DEFENSE", "ATTORNEY GENERAL", "SECRETARY OF COMMERCE", "sealofstate.png", 8);
 trivia.qLoader("THE PRESIDENT IS ELECTED IF HE:", "WINS A MAJORITY OF THE ELECTORAL VOTES", "WINS MOST OF THE COUNTRY'S VOTE", "WINS ALL THE STATES' VOTES", "WINS MOST OF THE STATES' VOTES", "college.jpeg", 9);
-
-
 trivia.start();
