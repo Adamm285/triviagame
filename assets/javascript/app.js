@@ -6,7 +6,6 @@ var trivia = {
         option3: [],
         option4: [],
         result: [],
-        qSKU: [],
         questionTimer: setInterval(1000),
         timer: 30,
     },
@@ -14,17 +13,15 @@ var trivia = {
     loss: 0,
     oot: 0,
     currentQ: 0,
-
-    qLoader(ask, option1, option2, option3, option4, result, qSKU) {
+    qLoader(ask, option1, option2, option3, option4, result, ) {
         trivia.question.ask.push(ask);
         trivia.question.option1.push(option1);
         trivia.question.option3.push(option3);
         trivia.question.option2.push(option2);
         trivia.question.option4.push(option4);
         trivia.question.result.push(result);
-        trivia.question.qSKU.push(qSKU);
+        
     },
-
     start() {
         trivia.replay();
         $("#continue").html("Continue");
@@ -34,16 +31,12 @@ var trivia = {
             "onclick": "trivia.qCurrent()"
         });
     },
-
     qCurrent() {
-
         trivia.timer = 30;
-
         function startTimer() {
             clearInterval(trivia.questionTimer);
             trivia.questionTimer = setInterval(tickDown, 1000 * 1);
         }
-
         function tickDown() {
             trivia.timer--;
             $("#seconds-left").html("Remaining Time: " + trivia.timer + " Seconds");
@@ -51,19 +44,14 @@ var trivia = {
                 trivia.qResult();
             }
         }
-
         startTimer();
-
         $("#continue").css("display", "none");
         $("#start").css("display", "none");
         $("#answer").html("");
         $("#result").html("");
         $("#pic").html("");
-
         $("#seconds-left").html("Remaining Time: 30 Seconds");
         $("#q").html(trivia.question.ask[trivia.currentQ]);
-
-
         var includes = [];
         var randomizeOptions = [];
         for (let i = 1; i <= 4; i++) {
@@ -87,10 +75,7 @@ var trivia = {
             $("#a" + i).html(randomizeOptions[i - 1]);
             $("#a" + i).attr("data-option", randomizeOptions[i - 1]);
         }
-
-
         $(".option").attr("onclick", "trivia.qResult()");
-
         trivia.currentQ++;
     },
 
@@ -111,7 +96,6 @@ var trivia = {
             console.log("oot", trivia.oot);
 
         } else if (event.target.getAttribute("data-option") == trivia.question.option1[trivia.currentQ - 1]) {
-
             $("#result").html("You guessed right!");
             trivia.win++;
             console.log("wins", trivia.win);
@@ -131,7 +115,6 @@ var trivia = {
         }
 
     },
-
     finalResult() {
         $("#answer").html("");
         $("#pic").html("");
@@ -142,7 +125,6 @@ var trivia = {
         $("#continue").html("Restart");
         $("#continue").attr("onclick", "trivia.start()");
     },
-
     replay() {
         $("#result").html("");
         $("#correct").html("");
