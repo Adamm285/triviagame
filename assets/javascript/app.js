@@ -14,7 +14,7 @@ var trivia = {
     loss: 0,
     oot: 0,
     currentQ: 0,
-    qLoader(ask, option1, option2, option3, option4, result, ) {
+    qLoader(ask, option1, option2, option3, option4, result) {
         trivia.question.ask.push(ask);
         trivia.question.option1.push(option1);
         trivia.question.option3.push(option3);

@@ -1,8 +1,9 @@
 body {
     color: rgb(187, 24, 78);
     background: url("https://cdn.aarp.net/content/dam/aarp/travel/destination-guides/2018/03/1140-trv-dst-dc-main.imgcache.revd66f01d4a19adcecdb09fdacd4471fa8.web.650.370.jpg") ;
-    background-repeat: no-repeat;
-    background-size: 110%;
+    background-attachment:fixed;
+    background-position: center;
+    background-size: cover;
     font-size: 24px;
     font-family: 'Bowlby One SC', cursive;
 }
@@ -11,7 +12,7 @@ body {
     height: 200px;
     width: 110%;
     background-color: black;
-    position: sticky;
+    position: fixed;
     text-align: center;
 }
 .container {
